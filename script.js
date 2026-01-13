@@ -144,7 +144,7 @@ function openModal(w) {
     if (w.resultImg) {
         const resBtn = document.createElement('button');
         resBtn.className = 'btn-result';
-        resBtn.innerText = "LIHAT JAWABAN GAMBAR";
+        resBtn.innerText = "👀";
         resBtn.onclick = () => {
             body.innerHTML += `<div class="pop-in"><img src="${w.resultImg}" class="modal-img-large" style="border:5px solid gold;"></div>`;
             resBtn.remove();
