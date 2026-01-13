@@ -2,12 +2,12 @@
 const words = [
     { id: 1, word: "JONES", row: 0, col: 7, dir: "v", q: "Siapa orang di samping ini?", img: "soal1.png" },
     { id: 2, word: "BAMBANG", row: 2, col: 1, dir: "h", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: "" },
-    { id: 3, word: "BERUDU", row: 3, col: 6, dir: "h", q: "Sebelum menjadi katak, anak katak disebut...", img: "soal8.png" },
+    { id: 3, word: "BERUDU", row: 3, col: 6, dir: "h", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...", img: "" },
     { id: 4, word: "MULUT", row: 2, col: 12, dir: "v", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: "" },
     { id: 5, word: "BODAT", row: 2, col: 1, dir: "v", q: "Hewan apakah ini?", img: "soal5.png" },
     { id: 6, word: "HABIS", row: 5, col: 0, dir: "h", q: "Sedikit demi sedikit, lama lama menjadi ....", img: "" },
     { id: 7, word: "SEMAUNYA", row: 5, col: 5, dir: "v", q: "Burung terbang dengan ...", img: "soal7.png" },
-    { id: 8, word: "REMAJA", row: 7, col: 4, dir: "h", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...'", img: "" },
+    { id: 8, word: "REMAJA", row: 7, col: 4, dir: "h", q: "Sebelum menjadi katak, anak katak disebut...'", img: "soal8.png" },
     { id: 9, word: "HAHAHA", row: 10, col: 2, dir: "h", q: "Salah satu sikap saat orang bahagia", img: "" },
     { id: 10, word: "PARBABA", row: 13, col: 4, dir: "h", q: "Nama desa di Pangururan", img: "soal10.png" }
 ];
