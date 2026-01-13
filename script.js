@@ -9,7 +9,7 @@ const words = [
 
     // MENURUN (V)
     { id: "v7", displayNo: 7, word: "JONES", row: 0, col: 6, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
-    { id: "v8", displayNo: 1, word: "BODAT", row: 2, col: 1, dir: "v", type: "menurun", q: "Hewan apakah ini?", img: ["soal5.png", "soal5-2.png"] },
+    { id: "v8", displayNo: 1, word: "BODAT", row: 2, col: 1, dir: "v", type: "menurun", q: "Hewan apakah ini?", img: ["soal5.png"], resultImg: "soal5-2.png" },
     { id: "v9", displayNo: 8, word: "MULUT", row: 2, col: 10, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
     { id: "v10", displayNo: 9, word: "SEMAUNYA", row: 5, col: 4, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] }
 ];
