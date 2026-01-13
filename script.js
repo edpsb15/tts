@@ -13,6 +13,7 @@
 ];
 */
 
+// Data words tetap sesuai koordinat Anda
 const words = [
     // MENDATAR (H)
     { id: 1, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
@@ -31,11 +32,14 @@ const words = [
 
 function createGrid() {
     const grid = document.getElementById('ttsGrid');
-    // Membuat grid 15x13 untuk mengakomodasi posisi terjauh (Parbaba di row 13)
-    grid.style.gridTemplateRows = "repeat(15, 45px)"; 
+    grid.innerHTML = ''; 
 
-    for (let r = 0; r < 15; r++) {
-        for (let c = 0; c < 12; c++) {
+    // FIXED: Sesuaikan dengan dimensi 11 Kolom x 13 Baris (index 0-12)
+    grid.style.gridTemplateColumns = "repeat(11, 45px)";
+    grid.style.gridTemplateRows = "repeat(13, 45px)"; 
+
+    for (let r = 0; r < 13; r++) { // Baris sampai 13
+        for (let c = 0; c < 11; c++) { // Kolom sampai 11
             const cell = document.createElement('div');
             cell.className = 'cell';
             cell.id = `cell-${r}-${c}`;
@@ -48,38 +52,69 @@ function createGrid() {
             let row = w.dir === 'v' ? w.row + i : w.row;
             let col = w.dir === 'h' ? w.col + i : w.col;
             let targetCell = document.getElementById(`cell-${row}-${col}`);
+            
             if(targetCell) {
                 targetCell.classList.add('active');
                 targetCell.setAttribute('data-letter', w.word[i]);
+                
                 if (i === 0) {
-                    targetCell.innerHTML += `<span class="cell-number">${w.id}</span>`;
+                    // Mencegah penumpukan nomor jika kotak adalah persimpangan
+                    if (!targetCell.querySelector('.cell-number')) {
+                        const numSpan = document.createElement('span');
+                        numSpan.className = 'cell-number';
+                        numSpan.innerText = w.id;
+                        targetCell.appendChild(numSpan);
+                    }
+                    
                     const btn = document.createElement('button');
                     btn.className = 'btn-display';
-                    btn.onclick = () => showAnswer(w.id);
+                    btn.onclick = (e) => {
+                        e.stopPropagation();
+                        showAnswer(w.id);
+                    };
                     targetCell.appendChild(btn);
                 }
             }
         }
-        // Buat Tombol Soal
-        const qBtn = document.createElement('button');
-        qBtn.innerText = `Soal ${w.id}`;
-        qBtn.onclick = () => openModal(w);
-        document.getElementById('buttonContainer').appendChild(qBtn);
+        
+        // Logika pengisian tombol kategori (Mendatar/Menurun)
+        const containerId = w.type === 'mendatar' ? 'containerMendatar' : 'containerMenurun';
+        const targetContainer = document.getElementById(containerId);
+        if(targetContainer) {
+            const qBtn = document.createElement('button');
+            qBtn.innerText = w.id;
+            qBtn.onclick = () => openModal(w);
+            targetContainer.appendChild(qBtn);
+        }
     });
 }
 
 function showAnswer(id) {
     const wData = words.find(x => x.id === id);
+    if (!wData) return;
+
     document.getElementById('soundCorrect').play();
+
     for (let i = 0; i < wData.word.length; i++) {
         let r = wData.dir === 'v' ? wData.row + i : wData.row;
         let c = wData.dir === 'h' ? wData.col + i : wData.col;
         const cell = document.getElementById(`cell-${r}-${c}`);
-        const letter = cell.getAttribute('data-letter');
-        const num = cell.querySelector('.cell-number')?.innerText || '';
-        cell.innerHTML = `<span class="cell-number">${num}</span><span class="pop-in">${letter}</span>`;
+        
+        if (cell) {
+            const letter = cell.getAttribute('data-letter');
+            const numSpan = cell.querySelector('.cell-number');
+            const numText = numSpan ? numSpan.innerText : '';
+
+            // Menampilkan huruf tanpa menghapus nomor soal
+            cell.innerHTML = `
+                ${numText ? `<span class="cell-number">${numText}</span>` : ''}
+                <span class="pop-in">${letter}</span>
+            `;
+        }
     }
 }
+
+// Fungsi openModal, handleImageClick, dll tetap sama
 
 // Fungsi openModal diperbesar untuk mendukung banyak gambar
 function openModal(w) {
