@@ -16,17 +16,17 @@
 const words = [
     // MENDATAR (H)
     { id: 1, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
-    { id: 2, word: "BERUDU", row: 3, col: 6, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...", img: ["soal8.png"] },
+    { id: 2, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...", img: ["soal8.png"] },
     { id: 3, word: "HABIS", row: 5, col: 0, dir: "h", type: "mendatar", q: "Sedikit demi sedikit, lama lama menjadi ....", img: [] },
-    { id: 4, word: "REMAJA", row: 7, col: 4, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...'", img: [] },
-    { id: 5, word: "HAHAHA", row: 10, col: 2, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
-    { id: 6, word: "PARBABA", row: 13, col: 4, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] },
+    { id: 4, word: "REMAJA", row: 6, col: 3, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...'", img: [] },
+    { id: 5, word: "HAHAHA", row: 8, col: 1, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
+    { id: 6, word: "PARBABA", row: 12, col: 3, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] },
 
     // MENURUN (V)
-    { id: 7, word: "JONES", row: 0, col: 7, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
+    { id: 7, word: "JONES", row: 0, col: 6, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
     { id: 8, word: "BODAT", row: 2, col: 1, dir: "v", type: "menurun", q: "Hewan apakah ini?", img: ["soal5.png"] },
-    { id: 9, word: "MULUT", row: 2, col: 12, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
-    { id: 10, word: "SEMAUNYA", row: 5, col: 5, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] }
+    { id: 9, word: "MULUT", row: 2, col: 10, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
+    { id: 10, word: "SEMAUNYA", row: 5, col: 4, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] }
 ];
 
 function createGrid() {
