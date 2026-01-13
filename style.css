@@ -3,7 +3,7 @@
     --navy-deep: #03346E;
     --blue-light: #6EACDA;
     --cream: #E2E2B6;
-    --cell-size: 45px;
+    --cell-size: 42px;
 }
 
 body {
@@ -129,17 +129,39 @@ header {
     backdrop-filter: blur(5px);
 }
 
+/* Update pada Modal agar memenuhi layar */
 .modal-content {
     background: var(--cream);
     color: var(--bg-dark);
-    width: 90%;
-    max-width: 500px;
-    margin: 100px auto;
-    padding: 30px;
+    width: 90vw; /* 90% Lebar Layar */
+    height: 80vh; /* 80% Tinggi Layar */
+    margin: 5vh auto;
+    padding: 40px;
     border-radius: 20px;
     position: relative;
     text-align: center;
+    overflow-y: auto; /* Scroll jika konten panjang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.modal-content h2 { font-size: 3rem; margin-bottom: 10px; }
+.modal-content p { font-size: 1.5rem; }
+
+/* Kategori Soal */
+.question-category {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.question-category h3 {
+    border-bottom: 2px solid var(--blue-light);
+    padding-bottom: 5px;
+    font-size: 1rem;
+}
+
 
 .btn-result {
     background: var(--navy-deep);
