@@ -1,15 +1,15 @@
 // Konfigurasi Grid (berdasarkan koordinat gambar Anda)
 const words = [
-    { id: 7, word: "JONES", row: 0, col: 6, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
-    { id: 1, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
-    { id: 2, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...", img: [] },
-    { id: 9, word: "MULUT", row: 2, col: 10, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
-    { id: 8, word: "BODAT", row: 2, col: 1, dir: "v", type: "menurun", q: "Hewan apakah ini?", img: ["soal5.png"] },
-    { id: 3, word: "HABIS", row: 5, col: 0, dir: "h", type: "mendatar", q: "Sedikit demi sedikit, lama lama menjadi ....", img: [] },
-    { id: 10, word: "SEMAUNYA", row: 5, col: 4, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] },
-    { id: 4, word: "REMAJA", row: 6, col: 3, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...'", img: ["soal8.png"] },
-    { id: 5, word: "HAHAHA", row: 8, col: 1, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
-    { id: 6, word: "PARBABA", row: 12, col: 3, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] }
+    { id: 1, word: "JONES", row: 0, col: 6, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
+    { id: 2, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
+    { id: 3, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...", img: [] },
+    { id: 4, word: "MULUT", row: 2, col: 10, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
+    { id: 5, word: "BODAT", row: 2, col: 1, dir: "v", type: "menurun", q: "Hewan apakah ini?", img: ["soal5.png"] },
+    { id: 6, word: "HABIS", row: 5, col: 0, dir: "h", type: "mendatar", q: "Sedikit demi sedikit, lama lama menjadi ....", img: [] },
+    { id: 7, word: "SEMAUNYA", row: 5, col: 4, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] },
+    { id: 8, word: "REMAJA", row: 6, col: 3, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...'", img: ["soal8.png"] },
+    { id: 9, word: "HAHAHA", row: 8, col: 1, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
+    { id: 10, word: "PARBABA", row: 12, col: 3, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] }
 ];
 /*
 const words = [
@@ -30,10 +30,11 @@ const words = [
 */
 function createGrid() {
     const grid = document.getElementById('ttsGrid');
-    grid.innerHTML = ''; // Clear grid
+    // Membuat grid 15x13 untuk mengakomodasi posisi terjauh (Parbaba di row 13)
+    grid.style.gridTemplateRows = "repeat(15, 45px)"; 
 
     for (let r = 0; r < 15; r++) {
-        for (let c = 0; c < 13; c++) {
+        for (let c = 0; c < 12; c++) {
             const cell = document.createElement('div');
             cell.className = 'cell';
             cell.id = `cell-${r}-${c}`;
@@ -46,18 +47,11 @@ function createGrid() {
             let row = w.dir === 'v' ? w.row + i : w.row;
             let col = w.dir === 'h' ? w.col + i : w.col;
             let targetCell = document.getElementById(`cell-${row}-${col}`);
-            
             if(targetCell) {
                 targetCell.classList.add('active');
                 targetCell.setAttribute('data-letter', w.word[i]);
-                
-                // Menambahkan Nomor di awal kata
                 if (i === 0) {
-                    // Cek jika sudah ada nomor (persimpangan)
-                    if (!targetCell.querySelector('.cell-number')) {
-                        targetCell.innerHTML += `<span class="cell-number">${w.id}</span>`;
-                    }
-                    
+                    targetCell.innerHTML += `<span class="cell-number">${w.id}</span>`;
                     const btn = document.createElement('button');
                     btn.className = 'btn-display';
                     btn.onclick = () => showAnswer(w.id);
@@ -65,14 +59,11 @@ function createGrid() {
                 }
             }
         }
-        
-        // Buat Tombol Soal di Kategori yang benar
-        const containerId = w.type === 'mendatar' ? 'containerMendatar' : 'containerMenurun';
+        // Buat Tombol Soal
         const qBtn = document.createElement('button');
-        qBtn.innerText = w.id;
-        qBtn.title = w.q;
+        qBtn.innerText = `Soal ${w.id}`;
         qBtn.onclick = () => openModal(w);
-        document.getElementById(containerId).appendChild(qBtn);
+        document.getElementById('buttonContainer').appendChild(qBtn);
     });
 }
 
