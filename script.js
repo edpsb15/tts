@@ -1,5 +1,5 @@
 // Konfigurasi Grid (berdasarkan koordinat gambar Anda)
-const words = [
+/*const words = [
     { id: 1, word: "JONES", row: 0, col: 6, dir: "v", type: "menurun", q: "Siapa orang di samping ini?", img: ["soal1.png"], resultImg: "jawab1.png" },
     { id: 2, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
     { id: 3, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...", img: [] },
@@ -11,7 +11,8 @@ const words = [
     { id: 9, word: "HAHAHA", row: 8, col: 1, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
     { id: 10, word: "PARBABA", row: 12, col: 3, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] }
 ];
-/*
+*/
+
 const words = [
     // MENDATAR (H)
     { id: 1, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
@@ -27,7 +28,7 @@ const words = [
     { id: 9, word: "MULUT", row: 2, col: 12, dir: "v", type: "menurun", q: "Seenak-enaknya makan di luar, lebih enak makan di ....", img: [] },
     { id: 10, word: "SEMAUNYA", row: 5, col: 5, dir: "v", type: "menurun", q: "Burung terbang dengan ...", img: ["soal7.png"] }
 ];
-*/
+
 function createGrid() {
     const grid = document.getElementById('ttsGrid');
     // Membuat grid 15x13 untuk mengakomodasi posisi terjauh (Parbaba di row 13)
