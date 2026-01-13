@@ -133,8 +133,8 @@ header {
 .modal-content {
     background: var(--cream);
     color: var(--bg-dark);
-    width: 90vw; /* 90% Lebar Layar */
-    height: 80vh; /* 80% Tinggi Layar */
+    width: 95vw; /* 90% Lebar Layar */
+    height: 90vh; /* 80% Tinggi Layar */
     margin: 5vh auto;
     padding: 40px;
     border-radius: 20px;
@@ -145,6 +145,40 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.modal-label {
+    font-size: 1.5rem;
+    color: var(--navy-deep);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.modal-question-text {
+    font-size: 2.5rem; /* Ukuran teks soal diperbesar */
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.modal-image-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.modal-img-large {
+    max-height: 50vh; /* Gambar diperbesar (50% tinggi modal) */
+    width: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.letter-text {
+    position: absolute;
+    z-index: 2;
 }
 
 .modal-content h2 { font-size: 3rem; margin-bottom: 10px; }
@@ -187,6 +221,26 @@ header {
     color: white;
     cursor: pointer;
 }
+
+.choice-menu {
+    position: absolute;
+    background: var(--blue-light);
+    color: var(--bg-dark);
+    font-size: 10px;
+    z-index: 20;
+    top: 0;
+    left: 45px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.choice-menu div {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.choice-menu div:hover { background: var(--cream); }
 
 .pop-in { animation: pop 0.3s ease-out; }
 @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
