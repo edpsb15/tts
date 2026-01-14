@@ -1,9 +1,9 @@
 const words = [
     // MENDATAR (H)
     { id: "h1", displayNo: 1, word: "BAMBANG", row: 2, col: 1, dir: "h", type: "mendatar", q: "Selain atlet sepak bola, dia juga berprofesi sebagai hair stylist. Siapakah dia?", img: [] },
-    { id: "h2", displayNo: 2, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...", img: ["soal8.png"] },
+    { id: "h2", displayNo: 2, word: "BERUDU", row: 3, col: 5, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...'", img: ["soal8.png"] },
     { id: "h3", displayNo: 3, word: "HABIS", row: 5, col: 0, dir: "h", type: "mendatar", q: "Sedikit demi sedikit, lama lama menjadi ....", img: [] },
-    { id: "h4", displayNo: 4, word: "REMAJA", row: 6, col: 3, dir: "h", type: "mendatar", q: "Lanjut potongan umpasa berikut : 'Padi si menua tempat berteduh ...'", img: [] },
+    { id: "h4", displayNo: 4, word: "REMAJA", row: 6, col: 3, dir: "h", type: "mendatar", q: "Sebelum menjadi katak, anak katak disebut...'", img: [] },
     { id: "h5", displayNo: 5, word: "HAHAHA", row: 8, col: 1, dir: "h", type: "mendatar", q: "Salah satu sikap saat orang bahagia", img: [] },
     { id: "h6", displayNo: 6, word: "PARBABA", row: 12, col: 3, dir: "h", type: "mendatar", q: "Nama desa di Pangururan", img: ["soal10-1.png", "soal10-2.png"] },
 
